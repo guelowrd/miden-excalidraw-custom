@@ -41,6 +41,9 @@ import { LilitaFontFaces } from "./Lilita";
 import { NunitoFontFaces } from "./Nunito";
 import { VirgilFontFaces } from "./Virgil";
 import { XiaolaiFontFaces } from "./Xiaolai";
+import { CaveatFontFaces } from "./Caveat";
+import { InterFontFaces } from "./Inter";
+import { IBMPlexMonoFontFaces } from "./IBM_Plex_Mono";
 
 export class Fonts {
   // it's ok to track fonts across multiple instances only once, so let's use
@@ -381,15 +384,15 @@ export class Fonts {
       Fonts.register.call(fonts, family, metadata, ...fontFacesDescriptors);
     };
 
-    init("Cascadia", ...CascadiaFontFaces);
-    init("Comic Shanns", ...ComicShannsFontFaces);
-    init("Excalifont", ...ExcalifontFontFaces);
+    init("Excalifont", ...CaveatFontFaces);
+    init("Cascadia", ...IBMPlexMonoFontFaces);
+    init("Comic Shanns", ...IBMPlexMonoFontFaces);
     // keeping for backwards compatibility reasons, uses system font (Helvetica on MacOS, Arial on Win)
     init("Helvetica", ...HelveticaFontFaces);
     // used for server-side pdf & png export instead of helvetica (technically does not need metrics, but kept in for consistency)
     init("Liberation Sans", ...LiberationFontFaces);
     init("Lilita One", ...LilitaFontFaces);
-    init("Nunito", ...NunitoFontFaces);
+    init("Nunito", ...InterFontFaces);
     init("Virgil", ...VirgilFontFaces);
 
     // fallback font faces

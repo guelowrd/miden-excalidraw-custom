@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;600&display=swap');
+
+/* Map Excalidraw font slots */
+.excalidraw .font-family-1 {
+  font-family: 'Caveat', cursive !important;
+}
+
+.excalidraw .font-family-2 {
+  font-family: 'Inter', sans-serif !important;
+}
+
+.excalidraw .font-family-3 {
+  font-family: 'IBM Plex Mono', monospace !important;
+} 
