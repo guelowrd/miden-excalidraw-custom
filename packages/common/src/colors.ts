@@ -48,13 +48,43 @@ export const getSpecificColorShades = (
   >,
   indexArr: Readonly<ColorShadesIndexes>,
 ) => {
+  // console.log("🎨 Generating shades for:", color, "from", oc[color]);
   return indexArr.map((index) => oc[color][index]) as any as ColorTuple;
 };
+
+// Override open-color defaults with Miden brand palette
+oc.orange = [
+  "#F4E8E3", // 0
+  "#F6CEBB", // 1
+  "#F9A57D", // 2
+  "#FC6B23", // 3
+  "#FF5500", // 4
+  "#CC4600", // 5 (optional deeper tone)
+  "#993200", // 6
+  "#661F00", // 7
+  "#330F00", // 8
+  "#1A0800", // 9
+];
+
+oc.blue = [
+  "#1764a8", // 0
+  "#99BCE0", // 1
+  "#0088FF", // 2 digital blue
+  "#1764a8", // 3 bic blue
+  "#192F32", // 4 midnight
+  "#1764a8", // 5 (optional deep)
+  "#00142A", // 6
+  "#000C1A", // 7
+  "#000711", // 8
+  "#000305", // 9
+];
 
 export const COLOR_PALETTE = {
   transparent: "transparent",
   black: "#1e1e1e",
   white: "#ffffff",
+  // orange: getSpecificColorShades("orange", ELEMENTS_PALETTE_SHADE_INDEXES),
+  // blue: getSpecificColorShades("blue", ELEMENTS_PALETTE_SHADE_INDEXES),
   // open-colors
   gray: getSpecificColorShades("gray", ELEMENTS_PALETTE_SHADE_INDEXES),
   red: getSpecificColorShades("red", ELEMENTS_PALETTE_SHADE_INDEXES),
@@ -91,19 +121,19 @@ const COMMON_ELEMENT_SHADES = pick(COLOR_PALETTE, [
 // ORDER matters for positioning in quick picker
 export const DEFAULT_ELEMENT_STROKE_PICKS = [
   COLOR_PALETTE.black,
-  COLOR_PALETTE.red[DEFAULT_ELEMENT_STROKE_COLOR_INDEX],
-  COLOR_PALETTE.green[DEFAULT_ELEMENT_STROKE_COLOR_INDEX],
-  COLOR_PALETTE.blue[DEFAULT_ELEMENT_STROKE_COLOR_INDEX],
-  COLOR_PALETTE.yellow[DEFAULT_ELEMENT_STROKE_COLOR_INDEX],
+  COLOR_PALETTE.orange[DEFAULT_ELEMENT_STROKE_COLOR_INDEX - 1],
+  COLOR_PALETTE.orange[DEFAULT_ELEMENT_STROKE_COLOR_INDEX - 2],
+  COLOR_PALETTE.blue[DEFAULT_ELEMENT_STROKE_COLOR_INDEX - 4],
+  COLOR_PALETTE.white,
 ] as ColorTuple;
 
 // ORDER matters for positioning in quick picker
 export const DEFAULT_ELEMENT_BACKGROUND_PICKS = [
   COLOR_PALETTE.transparent,
-  COLOR_PALETTE.red[DEFAULT_ELEMENT_BACKGROUND_COLOR_INDEX],
-  COLOR_PALETTE.green[DEFAULT_ELEMENT_BACKGROUND_COLOR_INDEX],
-  COLOR_PALETTE.blue[DEFAULT_ELEMENT_BACKGROUND_COLOR_INDEX],
-  COLOR_PALETTE.yellow[DEFAULT_ELEMENT_BACKGROUND_COLOR_INDEX],
+  COLOR_PALETTE.orange[DEFAULT_ELEMENT_BACKGROUND_COLOR_INDEX - 1],
+  COLOR_PALETTE.orange[DEFAULT_ELEMENT_BACKGROUND_COLOR_INDEX],
+  COLOR_PALETTE.orange[DEFAULT_ELEMENT_BACKGROUND_COLOR_INDEX + 1],
+  COLOR_PALETTE.white,
 ] as ColorTuple;
 
 // ORDER matters for positioning in quick picker
