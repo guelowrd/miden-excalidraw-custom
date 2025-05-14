@@ -41,7 +41,7 @@ import { LilitaFontFaces } from "./Lilita";
 import { NunitoFontFaces } from "./Nunito";
 import { VirgilFontFaces } from "./Virgil";
 import { XiaolaiFontFaces } from "./Xiaolai";
-import { CaveatFontFaces } from "./Caveat";
+import { BiroScriptFontFaces } from "./BiroScript";
 import { InterFontFaces } from "./Inter";
 import { IBMPlexMonoFontFaces } from "./IBM_Plex_Mono";
 
@@ -384,7 +384,7 @@ export class Fonts {
       Fonts.register.call(fonts, family, metadata, ...fontFacesDescriptors);
     };
 
-    init("Excalifont", ...CaveatFontFaces);
+    init("Excalifont", ...BiroScriptFontFaces);
     init("Cascadia", ...IBMPlexMonoFontFaces);
     init("Comic Shanns", ...IBMPlexMonoFontFaces);
     // keeping for backwards compatibility reasons, uses system font (Helvetica on MacOS, Arial on Win)
